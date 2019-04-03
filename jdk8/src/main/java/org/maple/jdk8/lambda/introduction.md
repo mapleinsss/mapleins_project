@@ -12,3 +12,29 @@
      3.如果某个接口只有一个抽象方法，我们没有给该接口声明 @FunctionalInterface,编译器仍然会给该接口看做函数式接口
      4.如果某个接口声明了一个抽象方法，该抽象方法重写了 Object 类的方法，不会给该接口的抽象方法+1
      5.Lambda 表达式是对象，他们必须依附于函数式接口
+
+## public interface Consumer<T> 
+     * Represents an operation that accepts a single input argument and returns no
+     * result. Unlike most other functional interfaces, {@code Consumer} is expected
+     * to operate via side-effects.
+     负作用：理解为对数据的处理
+     
+ ## public interface Function<T, R> 
+        R apply(T t);
+     Represents a function that accepts one argument and produces a result.
+     输入一个结果，返回一个结果
+ 
+ ## 接口
+    java8 以前
+        接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 public abstract（只能是 public abstract，其他修饰符都会报错）。
+        接口中可以含有变量，但是接口中的变量会被隐式的指定为 public static final 变量（并且只能是 public，用 private 修饰会报编译错误）。
+        接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。
+    java8 
+        可以定义 static 和 default 的方法
+        
+ ## public interface Comparator<T> {
+       int compare(T o1, T o2);
+    }
+    
+ ## Lambda 表达式概要
+    Java Lambda 表达式是一种匿名函数；它是没有声明的方法，即；没有访问修饰符、返回值声明、名字
