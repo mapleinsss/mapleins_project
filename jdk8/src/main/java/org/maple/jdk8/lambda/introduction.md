@@ -23,6 +23,9 @@
         接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。
      java8 
         可以定义 static 和 default 的方法
+            引用默认方法，是为了向后兼容，例如 :
+                list.sort是 jdk1.8 加入的，假如不是默认方法，设计的是抽象方法，那么以前写的类，如果实现了list接口，那么就会报错，因为没有实现list.sort方法
+                    而使用默认方法，那么实现的接口的类，就直接继承了 sort 方法，而不再需要取更改，从而避免了对既有的代码进行破坏。
 
 ## public interface Consumer<T> 
      * Represents an operation that accepts a single input argument and returns no
