@@ -18,13 +18,10 @@ public class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBean> 
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        //1	13736230513    192.196.100.1	2481	24681	200
-
         //1.获取一行
         String line = value.toString();
         //2.切割 \t
         String[] fields = line.split("\t");
-        System.out.println(fields.length);
         //3.封装对象
         k.set(fields[1]);//封装手机号
         long upFlow = Long.parseLong(fields[3]);
