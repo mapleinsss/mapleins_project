@@ -33,8 +33,9 @@ public class FruitMapper extends TableMapper<ImmutableBytesWritable, Put> {
         Cell[] cells = value.rawCells();
 
         for (Cell cell : cells) {
-            if("name".equals(Bytes.toString(CellUtil.cloneQualifier(cell))));
-            put.add(cell);
+            if("name".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))){
+                put.add(cell);
+            }
         }
         context.write(key,put);
     }
